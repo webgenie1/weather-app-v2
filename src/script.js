@@ -11,6 +11,10 @@ function refreshWeather(response) {
   let iconUrl = response.data.condition.icon_url;
   iconElement.setAttribute("src", iconUrl);
   iconElement.setAttribute("alt", response.data.condition.description);
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.condition.description;
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
 
   function refreshWeather(response) {
     // ── Debug / reference block ───────────────────────────────
